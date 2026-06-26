@@ -101,6 +101,8 @@ class ViewController: UIViewController {
         dollarEntry.text = String(roundDollars)
         dollarEntry.resignFirstResponder()
         
+        
+        
         self.performSegue(withIdentifier: "toNavigation", sender: self)
         
         
