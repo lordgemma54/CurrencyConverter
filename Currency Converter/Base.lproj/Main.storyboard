@@ -17,14 +17,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency Converter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovn-VG-8SA">
-                                <rect key="frame" x="56" y="158" width="281" height="26.333333333333343"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                <color key="textColor" name="AccentColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="UiV-XW-N3g">
-                                <rect key="frame" x="39.666666666666657" y="431.33333333333326" width="313.33333333333337" height="312.66666666666674"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nvz-0P-M8U" userLabel="Label Stack">
+                                <rect key="frame" x="40" y="60.000000000000007" width="203" height="26.333333333333336"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency Converter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovn-VG-8SA">
+                                        <rect key="frame" x="0.0" y="0.0" width="203" height="26.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <color key="textColor" name="AccentColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtL-GN-eiQ">
+                                        <rect key="frame" x="57.666666666666664" y="0.0" width="87.666666666666686" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" red="0.8413085938" green="0.2751464844" blue="0.3176269531" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="UiV-XW-N3g" userLabel="Input Stack">
+                                <rect key="frame" x="40" y="431.33333333333326" width="313.33333333333331" height="312.66666666666674"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="qmM-ZJ-EeG">
                                         <rect key="frame" x="0.0" y="0.0" width="313.33333333333331" height="34"/>
@@ -54,6 +65,9 @@
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kyZ-vC-g3w">
                                                 <rect key="frame" x="181.66666666666669" y="0.0" width="133.66666666666669" height="28"/>
                                                 <color key="onTintColor" systemColor="systemBrownColor"/>
+                                                <connections>
+                                                    <action selector="curSwitch_1:" destination="BYZ-38-t0r" eventType="valueChanged" id="ZmB-89-KdS"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -70,6 +84,9 @@
                                                 <rect key="frame" x="181.66666666666669" y="0.0" width="133.66666666666669" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="onTintColor" systemColor="systemBrownColor"/>
+                                                <connections>
+                                                    <action selector="curSwitch_2:" destination="BYZ-38-t0r" eventType="valueChanged" id="ryM-KC-u6f"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -86,6 +103,9 @@
                                                 <rect key="frame" x="181.66666666666669" y="0.0" width="133.66666666666669" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="onTintColor" systemColor="systemBrownColor"/>
+                                                <connections>
+                                                    <action selector="curSwitch_3:" destination="BYZ-38-t0r" eventType="valueChanged" id="dxi-fx-OAA"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -102,6 +122,9 @@
                                                 <rect key="frame" x="181.66666666666669" y="0.0" width="133.66666666666669" height="28"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="onTintColor" systemColor="systemBrownColor"/>
+                                                <connections>
+                                                    <action selector="curSwitch_4:" destination="BYZ-38-t0r" eventType="valueChanged" id="bIE-3U-WDN"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                     </stackView>
@@ -116,7 +139,7 @@
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="convertButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="B9j-8x-3zf"/>
+                                            <action selector="convertBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T2a-vi-jQL"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -128,14 +151,17 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.65314470099999999" green="0.7314453125" blue="0.40839435299999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UiV-XW-N3g" secondAttribute="bottom" constant="40" id="BJH-ST-snA"/>
-                            <constraint firstItem="Ovn-VG-8SA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="Hh9-Nd-tcv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ovn-VG-8SA" secondAttribute="trailing" constant="40" id="Uk5-Jx-Ov6"/>
-                            <constraint firstItem="Ovn-VG-8SA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fme-NW-8fe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UiV-XW-N3g" secondAttribute="trailing" constant="40" id="gIE-V8-C5j"/>
+                            <constraint firstItem="UiV-XW-N3g" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="7ae-hR-7fi"/>
+                            <constraint firstItem="nvz-0P-M8U" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="60" id="A8n-tG-vIu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UiV-XW-N3g" secondAttribute="bottom" constant="40" id="HRt-Yb-I0g"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UiV-XW-N3g" secondAttribute="trailing" constant="40" id="RCe-em-wAW"/>
+                            <constraint firstItem="nvz-0P-M8U" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="h1E-Zl-wSw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nvz-0P-M8U" secondAttribute="trailing" constant="40" id="vAI-cc-5pr"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dollarEntry" destination="jTe-0g-6Gh" id="tHy-fC-Ftm"/>
+                        <outlet property="errorLabel" destination="qtL-GN-eiQ" id="2kF-I0-Ptc"/>
                         <segue destination="S71-UY-cIx" kind="presentation" identifier="toNavigation" id="lRp-Zb-5bO"/>
                     </connections>
                 </viewController>
