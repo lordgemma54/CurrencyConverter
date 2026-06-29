@@ -8,17 +8,24 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    @IBOutlet weak var dollarEntry: UITextField!
-    var roundDollars : Int = 0
-    
-    @IBOutlet weak var errorLabel: UILabel!
-    
     var switch_1_on = true
     var switch_2_on = true
     var switch_3_on = true
     var switch_4_on = true
     
+    var totalINR : Double = 0.0
+    var totalCAD : Double = 0.0
+    var totalEUR : Double = 0.0
+    var totalNZD : Double = 0.0
+
+    @IBOutlet weak var dollarEntry: UITextField!
+    
+    
+    @IBOutlet weak var errorLabel: UILabel!
+    
+    var roundDollars : Int = 0
+    
+    var converter = conversionLogic()
     
     
     override func viewDidLoad() {
@@ -32,14 +39,7 @@ class ViewController: UIViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        if(segue.identifier == "toNavigation") {
-            let navigation = segue.destination as! NavigationViewController
-            navigation.currency1 = "hello everyone"
-        }
-    }
+   
     
     @IBAction func curSwitch_1(_ sender: UISwitch) {
         if sender.isOn {
@@ -83,29 +83,46 @@ class ViewController: UIViewController {
             return
         }
         
+        let dollars = converter.dollarRounding(userInput)
+        print("dollars: \(dollars)")
+        
     
-        if let integerInput = Int(userInput) {
-            roundDollars = integerInput
-            
-        }else if let floatInput = Double(userInput) {
-            let roundedDouble = floatInput.rounded()
-            roundDollars = Int (roundedDouble)
-            errorLabel.text = "Input rounded"
-            errorLabel.isHidden = false
-        } else {
-            errorLabel.text = ("Please enter a valid dollar amount")
-            errorLabel.isHidden = false
-            return
+        if switch_1_on {
+            totalINR = converter.convertINR(dollars)
+            print(totalINR)
         }
         
-        dollarEntry.text = String(roundDollars)
-        dollarEntry.resignFirstResponder()
+        if switch_2_on {
+            totalCAD = converter.convertCAD(dollars)
+            print(totalCAD)
+        }
         
+        if switch_3_on {
+            totalEUR = converter.convertEUR(dollars)
+            print(totalEUR)
+        }
+        
+        if switch_4_on {
+            totalNZD = converter.convertNZD(dollars)
+            print(totalNZD)
+        }
+        
+        
+        dollarEntry.text = String(dollars)
+        dollarEntry.resignFirstResponder()
         
         
         self.performSegue(withIdentifier: "toNavigation", sender: self)
         
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        if(segue.identifier == "toNavigation") {
+            let navigation = segue.destination as! NavigationViewController
+        }
     }
     
 }

@@ -18,16 +18,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="nvz-0P-M8U" userLabel="Label Stack">
-                                <rect key="frame" x="40" y="158" width="203" height="26.333333333333343"/>
+                                <rect key="frame" x="40" y="158" width="297" height="26.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Currency Converter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovn-VG-8SA">
-                                        <rect key="frame" x="0.0" y="0.0" width="203" height="26.333333333333332"/>
+                                        <rect key="frame" x="47" y="0.0" width="203" height="26.333333333333332"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <color key="textColor" name="AccentColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qtL-GN-eiQ">
-                                        <rect key="frame" x="57.666666666666664" y="0.0" width="87.666666666666686" height="0.0"/>
+                                        <rect key="frame" x="104.66666666666666" y="0.0" width="87.666666666666657" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" red="0.8413085938" green="0.2751464844" blue="0.3176269531" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -283,7 +283,12 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cadOutLabel" destination="jip-3g-0Ug" id="gEi-Md-yc4"/>
                         <outlet property="curLabel_1" destination="u7Z-QM-UtR" id="Diz-65-wjS"/>
+                        <outlet property="eurOutLabel" destination="XUg-yh-pVW" id="fEa-dA-lCy"/>
+                        <outlet property="inrOutLabel" destination="B0v-p7-eo7" id="iCR-bJ-piG"/>
+                        <outlet property="nzdOutLabel" destination="LWd-ya-XaH" id="lEr-ht-ZUM"/>
+                        <outlet property="usdOutLabel" destination="QsU-GR-Vn7" id="LjO-5J-V4N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Xd-S2-xtL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
