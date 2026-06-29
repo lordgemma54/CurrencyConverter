@@ -17,13 +17,13 @@ class ViewController: UIViewController {
     var totalCAD : Double = 0.0
     var totalEUR : Double = 0.0
     var totalNZD : Double = 0.0
-
+    var dollars : Int = 0
     @IBOutlet weak var dollarEntry: UITextField!
     
     
     @IBOutlet weak var errorLabel: UILabel!
     
-    var roundDollars : Int = 0
+//    var roundDollars : Int = 0
     
     var converter = conversionLogic()
     
@@ -83,28 +83,28 @@ class ViewController: UIViewController {
             return
         }
         
-        let dollars = converter.dollarRounding(userInput)
-        print("dollars: \(dollars)")
+        dollars = converter.dollarRounding(userInput)!
+//        print("dollars: \(dollars)")
         
     
         if switch_1_on {
             totalINR = converter.convertINR(dollars)
-            print(totalINR)
+//            print(totalINR)
         }
         
         if switch_2_on {
             totalCAD = converter.convertCAD(dollars)
-            print(totalCAD)
+//            print(totalCAD)
         }
         
         if switch_3_on {
             totalEUR = converter.convertEUR(dollars)
-            print(totalEUR)
+//            print(totalEUR)
         }
         
         if switch_4_on {
             totalNZD = converter.convertNZD(dollars)
-            print(totalNZD)
+//            print(totalNZD)
         }
         
         
@@ -122,6 +122,12 @@ class ViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if(segue.identifier == "toNavigation") {
             let navigation = segue.destination as! NavigationViewController
+            navigation.usdOut = String(dollars)
+            navigation.inrOut = String(totalINR)
+            navigation.cadOut = String(totalCAD)
+            navigation.eurOut = String(totalEUR)
+            navigation.nzdOut = String(totalNZD)
+            
         }
     }
     

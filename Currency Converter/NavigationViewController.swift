@@ -9,7 +9,12 @@ import UIKit
 
 class NavigationViewController: UIViewController {
 
-    var currency1 = ""
+    var usdOut = ""
+    var inrOut = ""
+    var cadOut = ""
+    var eurOut = ""
+    var nzdOut = ""
+    
 
     @IBOutlet weak var curLabel_1: UILabel!
     
@@ -25,7 +30,11 @@ class NavigationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        curLabel_1.text = "currency coming soon"
+        usdOutLabel.text = "\(usdOut)"
+        inrOutLabel.text = "\(inrOut)"
+        cadOutLabel.text = "\(cadOut)"
+        eurOutLabel.text = "\(eurOut)"
+        nzdOutLabel.text = "\(nzdOut)"
 
         // Do any additional setup after loading the view.
     }
