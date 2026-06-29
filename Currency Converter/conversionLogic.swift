@@ -16,13 +16,12 @@ import UIKit
 
 struct conversionLogic {
 
-//var dollarConversion : Int = 0
-var inr = 94.32
-var cad = 1.42
-var eur = 0.88
-var nzd = 1.77
+let inr = 94.32
+let cad = 1.42
+let eur = 0.88
+let nzd = 1.77
 
-    mutating func dollarRounding (_ userInput: String) -> Int? {
+    func dollarRounding (_ userInput: String) -> Int? {
         if let integerInput = Int(userInput), integerInput >= 0 {
             return integerInput
         }

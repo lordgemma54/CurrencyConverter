@@ -18,12 +18,10 @@ class ViewController: UIViewController {
     var totalEUR : Double = 0.0
     var totalNZD : Double = 0.0
     var dollars : Int = 0
+    
     @IBOutlet weak var dollarEntry: UITextField!
     
-    
     @IBOutlet weak var errorLabel: UILabel!
-    
-//    var roundDollars : Int = 0
     
     var converter = conversionLogic()
     
@@ -33,13 +31,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
-    
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-   
     
     @IBAction func curSwitch_1(_ sender: UISwitch) {
         if sender.isOn {
@@ -75,6 +66,11 @@ class ViewController: UIViewController {
     
 
     @IBAction func convertBtn(_ sender: UIButton) {
+        totalINR = 0.0
+        totalCAD = 0.0
+        totalEUR = 0.0
+        totalNZD = 0.0
+        
         errorLabel.isHidden = true
         
         guard let userInput = dollarEntry.text, !userInput.isEmpty else {
@@ -83,7 +79,13 @@ class ViewController: UIViewController {
             return
         }
         
-        dollars = converter.dollarRounding(userInput)!
+        guard let rounded = converter.dollarRounding(userInput) else {
+            errorLabel.text = "Please enter a valid non-negative integer."
+            errorLabel.isHidden = false
+            return
+        }
+
+        dollars = rounded
 //        print("dollars: \(dollars)")
         
     
@@ -123,11 +125,10 @@ class ViewController: UIViewController {
         if(segue.identifier == "toNavigation") {
             let navigation = segue.destination as! NavigationViewController
             navigation.usdOut = String(dollars)
-            navigation.inrOut = String(totalINR)
-            navigation.cadOut = String(totalCAD)
-            navigation.eurOut = String(totalEUR)
-            navigation.nzdOut = String(totalNZD)
-            
+            navigation.inrOut = String(format: "%.2f", totalINR)
+            navigation.cadOut = String(format: "%.2f", totalCAD)
+            navigation.eurOut = String(format: "%.2f", totalEUR)
+            navigation.nzdOut = String(format: "%.2f", totalNZD)
         }
     }
     
